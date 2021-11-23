@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CountriesState, Countries, Country, CountriesQuery } from '../../interfaces/interfaces';
+import { CountriesState, CountriesQuery } from '../../interfaces/interfaces';
 
 const initialState: CountriesState  = {
     loading: true,
