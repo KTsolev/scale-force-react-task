@@ -1,0 +1,31 @@
+@import '../../styles/mixins/mixins.scss';
+
+.country {
+
+    &-tile {
+        
+        @include row;
+    
+        
+        &:nth-child(2n+1) {
+            background-color: #76bbe2;
+        }
+    
+        &:hover {
+            background-color: #f0e68c;
+            @include hover-mixin(#7e89b9, #ffe4c4);
+        }
+    
+        &-item {
+            @include row-item;
+            padding: 4px;
+        }
+    }
+}
+
+@media  screen and (max-width: 450px) {
+    .country-tile {
+       @include column;
+    }
+    
+}

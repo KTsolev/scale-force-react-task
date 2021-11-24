@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CountriesState, Countries, Country, CountriesQuery } from '../../interfaces/interfaces';
+import { CountriesState, CountriesQuery } from '../../interfaces/interfaces';
 
 const initialState: CountriesState  = {
     loading: true,
@@ -12,7 +12,7 @@ const initialState: CountriesState  = {
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
-      fetchCountries: (state: any, action: PayloadAction<null>) => {
+      fetchCountries: (state: any, action: PayloadAction<any>) => {
         return {
           ...state,
           error: null,
@@ -33,11 +33,25 @@ const initialState: CountriesState  = {
             error: action.payload
         };
       },
+      filterCountries: (state: any, action: PayloadAction<string>) => {
+        return {
+          ...state,
+          error: null,
+          loading: true
+        };
+      },
       filterCountriesSuccess: (state: any, action: PayloadAction<CountriesQuery[]>) => {
         return {
           ...state,
           loading: false,
-          result: {...action.payload}
+          result: [...action.payload]
+        };
+      },
+      filterCountriesFailiure: (state: any, action: PayloadAction<any>) => {
+        return {
+          ...state,
+          error: action.payload,
+          loading: false
         };
       },
     },
@@ -46,8 +60,11 @@ const initialState: CountriesState  = {
 export const { 
   fetchCountries, 
   fetchCountriesSuccess,
-  fetchCountriesFailure, 
-  filterCountriesSuccess } = counterSlice.actions;
+  fetchCountriesFailure,
+  filterCountries,
+  filterCountriesSuccess,
+  filterCountriesFailiure
+ } = counterSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCountries = (state: any) => state.countries.result;
