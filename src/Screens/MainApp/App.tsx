@@ -1,7 +1,7 @@
-import { store } from './redux/store';
+import { store } from '../../redux/store';
 import { Provider } from 'react-redux';
-import { CountriesList } from './Screens/Countries/Countries';
-import './App.css';
+import { CountriesList } from '../Countries/Countries';
+import './styles.scss';
 
 function App() {
   return (

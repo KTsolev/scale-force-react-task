@@ -1,6 +1,6 @@
 export interface Countries {
     id: string,
-    iso2code: string,
+    iso2Code: string,
     name: string,
     capitalCity: string,
     longitude: string,
@@ -9,7 +9,7 @@ export interface Countries {
 
 export interface CountryProps {
     id: string,
-    iso2code: string,
+    iso2Code: string,
     value: string
 }
 
